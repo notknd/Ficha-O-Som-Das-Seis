@@ -1,0 +1,427 @@
+/* Importando fontes estilo Velho Oeste */
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --paper-sepia: #f4e4bc;
+  --paper-dark: #d4b483;
+  --ink-color: #3e2723;
+  --leather: #5d4037;
+  --wood-dark: #26140c; 
+  --accent-red: #8d130f;
+  
+  --font-title: 'Rye', cursive;
+  --font-body: 'Courier Prime', monospace;
+  
+  --texture-overlay: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink-color);
+  background-color: #e0cda9; 
+  background-image: var(--texture-overlay); 
+}
+
+.wood-background {
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px; /* Aumentei para caber Antecedentes e Habilidades lado a lado */
+  margin: 0 auto;
+}
+
+.mt-20 { margin-top: 20px; }
+.mt-10 { margin-top: 10px; }
+
+/* --- Header --- */
+.header {
+  margin-bottom: 25px;
+  border-bottom: 3px double var(--leather);
+  padding-bottom: 15px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+}
+
+.western-title {
+  font-family: var(--font-title);
+  font-size: 2.5em;
+  color: var(--accent-red);
+  text-shadow: 3px 3px 0px var(--wood-dark);
+  margin: 0;
+  text-align: center;
+  flex-grow: 1; 
+}
+
+.btn-western {
+  background: var(--accent-red);
+  color: var(--paper-sepia);
+  border: 2px solid var(--wood-dark);
+  font-family: var(--font-title);
+  padding: 8px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9em;
+}
+
+/* --- Layouts e Grids --- */
+
+/* Grid Superior: Dados à Esquerda, Foto à Direita */
+.top-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+/* Grid do Meio: Antecedentes à Esquerda, Habilidades à Direita */
+.middle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.paper-frame {
+  background-color: var(--paper-sepia);
+  background-image: var(--texture-overlay);
+  padding: 20px;
+  border: 4px solid var(--leather);
+  box-shadow: inset 0 0 30px rgba(93, 64, 55, 0.6), 5px 5px 15px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.paper-frame-dark {
+    background-color: var(--leather);
+    padding: 15px;
+    border: 4px double var(--paper-sepia);
+    color: var(--paper-sepia);
+}
+
+.paper-frame::before, .paper-frame::after {
+    content: '•';
+    position: absolute;
+    color: var(--wood-dark);
+    font-size: 2em;
+}
+.paper-frame::before { top: -15px; left: 5px; }
+.paper-frame::after { bottom: -15px; right: 5px; }
+
+/* --- Imagem --- */
+.wanted-poster {
+    padding: 10px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--paper-dark);
+}
+
+.char-image {
+    max-width: 100%;
+    max-height: 350px;
+    border: 3px solid var(--ink-color);
+    filter: sepia(0.5) contrast(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.image-placeholder {
+    font-family: var(--font-title);
+    opacity: 0.5;
+    font-size: 1.5em;
+}
+
+/* --- Inputs --- */
+.rustic-input { display: flex; flex-direction: column; }
+.rustic-input label {
+  font-family: var(--font-title);
+  color: var(--leather);
+  font-size: 0.9em;
+  margin-bottom: 2px;
+}
+.rustic-input.dark-mode label { color: var(--paper-sepia); }
+
+input, textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px dashed var(--leather);
+  font-family: var(--font-body);
+  font-size: 1.1em;
+  color: var(--ink-color);
+  padding: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.rustic-input.dark-mode input, .rustic-input.dark-mode textarea {
+    color: var(--paper-sepia);
+    border-bottom-color: var(--paper-sepia);
+}
+.handwritten { font-weight: bold; font-family: 'Segoe Print', 'Courier Prime'; }
+.huge-text { font-size: 1.5em; }
+
+input:focus, textarea:focus {
+    outline: none;
+    background-color: rgba(93, 64, 55, 0.05);
+    border-bottom-style: solid;
+}
+
+/* --- Grids Específicos --- */
+.grid-3-header { display: grid; grid-template-columns: 2fr 0.5fr 1fr; gap: 15px; align-items: end; }
+.grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+.status-box { 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.status-box input { text-align: center; font-weight: bold; }
+
+/* --- Antecedentes --- */
+.antecedentes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas para caber na metade da tela */
+    gap: 10px;
+}
+.antecedente-row {
+    border: 1px solid var(--leather);
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+}
+.label-text { 
+    font-size: 0.75em; font-weight: bold; margin-bottom: 5px; text-transform: uppercase;
+}
+.small-input { width: 50px; text-align: center; font-weight: bold; }
+
+.divider-rope {
+    height: 10px;
+    background: repeating-linear-gradient(45deg, var(--leather), var(--leather) 10px, var(--paper-dark) 10px, var(--paper-dark) 20px);
+    margin: 25px 0;
+    opacity: 0.6;
+    border-radius: 5px;
+}
+
+/* --- Cartão de Atributos --- */
+.som-das-seis-card {
+  background-color: var(--paper-sepia);
+  background-image: var(--texture-overlay);
+  border: 4px solid var(--leather);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: inset 0 0 30px rgba(93, 64, 55, 0.6), 5px 5px 15px rgba(0,0,0,0.5);
+  color: var(--ink-color); 
+}
+.western-subtitle.inverted {
+  color: var(--leather);
+  border-bottom: 1px solid var(--leather);
+  margin-top: 0;
+  text-shadow: none;
+}
+.attributes-list { display: flex; flex-direction: column; gap: 12px; }
+.stat-row {
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px dotted rgba(93, 64, 55, 0.3); padding-bottom: 5px;
+}
+.stat-label {
+  font-family: var(--font-title); font-size: 1.4em; text-transform: lowercase;
+  color: var(--ink-color); width: 130px; margin: 0; padding-top: 5px;
+}
+.dots-wrapper { display: flex; gap: 8px; }
+.stat-dot {
+  width: 32px; height: 32px;
+  background-color: rgba(93, 64, 55, 0.05); 
+  border: 2px solid var(--leather); border-radius: 6px;
+  cursor: pointer; display: flex; justify-content: center; align-items: center;
+  font-size: 1.8em; color: var(--ink-color);
+  transition: transform 0.1s; line-height: 0;
+}
+.stat-dot:hover { transform: scale(1.1); background-color: rgba(93, 64, 55, 0.2); }
+
+/* --- Cavalo --- */
+.horse-section { border-width: 5px; border-style: double; }
+.horse-grid-3 { display: grid; grid-template-columns: auto auto 1fr; gap: 25px; align-items: start; }
+.horse-stat-row { border-bottom: none; justify-content: flex-start; gap: 15px; }
+.horse-stat-row .stat-label { width: auto; font-size: 1.2em; }
+.horse-calculated-col {
+    display: flex; flex-direction: column; gap: 15px; padding: 15px;
+    background: rgba(244, 228, 188, 0.5); border: 2px solid var(--leather);
+}
+.calc-item { display: flex; flex-direction: column; align-items: center; }
+.calc-item label { font-family: var(--font-title); font-size: 0.9em; color: var(--leather); margin-bottom: 5px; }
+.calc-item span { font-family: 'Courier Prime', monospace; font-weight: bold; color: var(--ink-color); }
+.horse-progression-list { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.progression-item {
+    display: flex; align-items: center; gap: 15px; padding: 10px;
+    background: rgba(93, 64, 55, 0.05); border-radius: 8px; border: 1px dashed rgba(93, 64, 55, 0.3);
+}
+.big-checkbox {
+    width: 45px; height: 45px; border-radius: 50%;
+    border: 3px solid var(--leather); background-color: var(--paper-sepia);
+    display: flex; justify-content: center; align-items: center;
+    font-size: 2em; font-weight: bold; color: var(--ink-color);
+    cursor: pointer; flex-shrink: 0; transition: all 0.2s;
+}
+.big-checkbox:hover { transform: scale(1.05); background-color: #fff; }
+.big-checkbox.checked { background-color: var(--paper-dark); }
+.progression-item p { margin: 0; font-family: var(--font-body); font-size: 0.95em; line-height: 1.4; }
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .top-grid { grid-template-columns: 1fr; }
+  .middle-grid { grid-template-columns: 1fr; }
+  .antecedentes-grid { grid-template-columns: repeat(4, 1fr); } /* Volta a ser 4 no celular */
+  .header-content { flex-direction: column; gap: 10px; }
+  .horse-grid-3 { grid-template-columns: 1fr; gap: 20px; }
+  .horse-calculated-col { flex-direction: row; justify-content: space-around; }
+}
+/* --- ROLADOR DE DADOS (DICE ROLLER) --- */
+
+/* Botão Flutuante (O Dado no canto) */
+/* --- ROLADOR DE DADOS --- */
+.dice-fab {
+  position: fixed;
+  bottom: 30px; 
+  right: 30px;
+  width: 70px; 
+  height: 70px;
+  background-color: var(--accent-red);
+  border: 4px solid var(--wood-dark);
+  border-radius: 50%;
+  color: var(--paper-sepia); /* Cor do ícone */
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+  z-index: 2000;
+  
+  /* Prepara a transição suave */
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Tamanho do ícone SVG dentro do botão */
+.dice-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Animação ao passar o mouse: Gira 360 graus e aumenta */
+.dice-fab:hover {
+  transform: rotate(360deg) scale(1.15);
+}
+
+
+/* A Bandeja de Dados (Menu Aberto) */
+.dice-tray {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  width: 300px;
+  background-color: var(--wood-dark);
+  background-image: var(--texture-overlay);
+  border: 4px solid var(--leather);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  z-index: 2000;
+  color: var(--paper-sepia);
+  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.dice-title {
+  text-align: center;
+  font-family: var(--font-title);
+  margin: 0 0 15px 0;
+  border-bottom: 2px dashed var(--leather);
+  padding-bottom: 5px;
+  color: var(--paper-sepia);
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* Visor do Resultado */
+.dice-result-display {
+  background-color: var(--paper-sepia);
+  color: var(--ink-color);
+  font-family: var(--font-title);
+  font-size: 3.5em;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 4px inset var(--leather);
+  min-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+}
+
+.dice-history {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.9em;
+  text-align: center;
+  opacity: 0.8;
+  margin-bottom: 15px;
+  min-height: 1.2em;
+}
+
+/* Grid de Botões */
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.dice-btn {
+  background-color: var(--leather);
+  border: 2px solid var(--paper-sepia);
+  color: var(--paper-sepia);
+  padding: 12px 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-title);
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: all 0.1s;
+  text-shadow: 1px 1px 0 #000;
+}
+
+.dice-btn:hover {
+  background-color: var(--paper-sepia);
+  color: var(--ink-color);
+  border-color: var(--wood-dark);
+  text-shadow: none;
+}
+
+.dice-btn:active {
+  transform: translateY(2px);
+}
+
+/* Destaque para o D6 */
+.dice-btn.d6 {
+  background-color: var(--accent-red);
+  border-color: var(--wood-dark);
+  grid-column: span 3;
+  font-size: 1.3em;
+}
