@@ -6,15 +6,15 @@
 ![React](https://img.shields.io/badge/React-v18-blue)
 ![Supabase](https://img.shields.io/badge/Supabase-Database-green)
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 
-O **Saloon** é uma Single Page Application (SPA) desenvolvida para digitalizar a experiência de jogar um RPG de Velho Oeste. O projeto substitui as fichas de papel tradicionais por uma interface web responsiva, persistente e altamente estilizada.
+O projeto se trata de uma Single Page Application (SPA) desenvolvida para digitalizar a ficha do sistema de RPG: O Som Das Seis. O projeto substitui as fichas de papel tradicionais por uma interface web responsiva, persistente e estilizada.
 
 O objetivo principal foi criar uma ferramenta que permitisse aos jogadores focarem na narrativa, automatizando cálculos e garantindo que o progresso (itens, xp, status) fosse salvo automaticamente na nuvem.
 
 ---
 
-## 🚀 Funcionalidades Principais
+## Funcionalidades Principais
 
 * **Gerenciamento de Personagens:** Criação e visualização de múltiplas fichas de personagens.
 * **Persistência de Dados em Tempo Real:** Integração com **Supabase** para salvar automaticamente qualquer alteração feita na ficha (sistema de *auto-save* com debouncing).
@@ -27,7 +27,7 @@ O objetivo principal foi criar uma ferramenta que permitisse aos jogadores focar
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Front-end
 * **React.js (Vite):** Biblioteca principal para construção da interface e gerenciamento de estado.
@@ -43,10 +43,10 @@ O objetivo principal foi criar uma ferramenta que permitisse aos jogadores focar
 
 ---
 
-## 🎨 Destaques de UI/UX
+## Destaques de UI/UX
 
-O projeto foca fortemente na "Diegese" (imersão):
-1.  **Estética:** Fontes *Rye* e *Courier Prime* para remeter a cartazes de procurado e documentos datilografados.
+O projeto foca fortemente na imersão:
+1.  **Estética:** Fontes estilizadas para remeter a cartazes de procurado e documentos datilografados.
 2.  **Feedback Visual:** Elementos interativos reagem ao mouse (hover, transformações).
 3.  **Organização:** A ficha é dividida logicamente em:
     * *Esquerda:* Combate e Atributos.
@@ -55,11 +55,60 @@ O projeto foca fortemente na "Diegese" (imersão):
 
 ---
 
-## 🔧 Como rodar o projeto localmente
+## Como rodar o projeto localmente
 
 Pré-requisitos: Node.js instalado.
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/SEU-USUARIO/nome-do-repo.git](https://github.com/SEU-USUARIO/nome-do-repo.git)
-   cd nome-do-repo
+   git clone [https://github.com/notknd/Ficha-O-Som-Das-Seis.git](https://github.com/notknd/Ficha-O-Som-Das-Seis)
+   cd Ficha-O-Som-Das-Seis
+
+2. **Instalar dependências**
+    ```bash
+    npm install
+
+3. **Configurar Variáveis de Ambiente**
+
+    Crie um arquivo.env na raiz do projeto e adicione suas credenciais do Supabase
+
+    ```bash
+    VITE_SUPABASE_URL=sua_url_do_supabase
+    VITE_SUPABASE_ANON_KEY=sua_chave_anonima
+
+
+4. **Rodar o projeto**
+    ```bash
+    npm run dev
+O projeto estará disponível em  http://localhost:5173
+
+## Deploy (Vercel)
+Para colocar o projeto online gratuitamente na Vercel:
+1. Crie um arquivo vercel.json na raiz do projeto com o seguinte conteúdo para configurar as rotas do SPA:
+    ```bash
+    {
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+    }
+
+2. Suba o código para o seu GitHub
+
+3. Crie uma conta na Vercel e importe o repositório
+
+4. Nas configurações do projeto na Vercel, adicione as mesmas Variáveis de Ambiente do passo anterior.
+
+5. Clique em Deploy
+
+### Estrutura de Pastas
+src/
+├── assets/           # Imagens e ícones
+├── App.css           # Estilos globais e componentes visuais (CSS Puro)
+├── App.jsx           # Configuração de Rotas
+├── Ficha.jsx         # Componente Principal: Lógica da ficha, cálculos e UI
+├── Home.jsx          # Dashboard: Seleção e criação de personagens
+├── main.jsx          # Ponto de entrada React
+└── supabaseClient.js # Configuração da conexão com o banco de dados
+
+## Licença
+Este projeto está sob a licença MIT. Sinta-se livre para usar como inspiração para suas próprias campanhas de RPG.
+
+<p align="center"> Desenvolvido por Kendy H.</p>
