@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-  max-width: 1200px; /* Aumentei para caber Antecedentes e Habilidades lado a lado */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -53,7 +53,7 @@ body {
 .western-title {
   font-family: var(--font-title);
   font-size: 2.5em;
-  color: var(--accent-red);
+  color: var(--paper-sepia);
   text-shadow: 3px 3px 0px var(--wood-dark);
   margin: 0;
   text-align: center;
@@ -73,8 +73,6 @@ body {
 }
 
 /* --- Layouts e Grids --- */
-
-/* Grid Superior: Dados à Esquerda, Foto à Direita */
 .top-grid {
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -83,7 +81,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Grid do Meio: Antecedentes à Esquerda, Habilidades à Direita */
 .middle-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -190,7 +187,7 @@ input:focus, textarea:focus {
 /* --- Antecedentes --- */
 .antecedentes-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas para caber na metade da tela */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
 .antecedente-row {
@@ -281,18 +278,6 @@ input:focus, textarea:focus {
 .big-checkbox.checked { background-color: var(--paper-dark); }
 .progression-item p { margin: 0; font-family: var(--font-body); font-size: 0.95em; line-height: 1.4; }
 
-/* Responsividade */
-@media (max-width: 900px) {
-  .top-grid { grid-template-columns: 1fr; }
-  .middle-grid { grid-template-columns: 1fr; }
-  .antecedentes-grid { grid-template-columns: repeat(4, 1fr); } /* Volta a ser 4 no celular */
-  .header-content { flex-direction: column; gap: 10px; }
-  .horse-grid-3 { grid-template-columns: 1fr; gap: 20px; }
-  .horse-calculated-col { flex-direction: row; justify-content: space-around; }
-}
-/* --- ROLADOR DE DADOS (DICE ROLLER) --- */
-
-/* Botão Flutuante (O Dado no canto) */
 /* --- ROLADOR DE DADOS --- */
 .dice-fab {
   position: fixed;
@@ -310,24 +295,11 @@ input:focus, textarea:focus {
   cursor: pointer;
   box-shadow: 0 6px 15px rgba(0,0,0,0.6);
   z-index: 2000;
-  
-  /* Prepara a transição suave */
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
+.dice-icon { width: 40px; height: 40px; }
+.dice-fab:hover { transform: rotate(360deg) scale(1.15); }
 
-/* Tamanho do ícone SVG dentro do botão */
-.dice-icon {
-  width: 40px;
-  height: 40px;
-}
-
-/* Animação ao passar o mouse: Gira 360 graus e aumenta */
-.dice-fab:hover {
-  transform: rotate(360deg) scale(1.15);
-}
-
-
-/* A Bandeja de Dados (Menu Aberto) */
 .dice-tray {
   position: fixed;
   bottom: 110px;
@@ -343,23 +315,34 @@ input:focus, textarea:focus {
   color: var(--paper-sepia);
   animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 @keyframes popIn {
   from { opacity: 0; transform: scale(0.8) translateY(20px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.dice-title {
-  text-align: center;
-  font-family: var(--font-title);
-  margin: 0 0 15px 0;
+/* Novo Cabeçalho do Dado com Botão de Histórico */
+.dice-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 2px dashed var(--leather);
   padding-bottom: 5px;
-  color: var(--paper-sepia);
-  text-shadow: 2px 2px 0 #000;
+  margin-bottom: 15px;
 }
+.dice-title { margin: 0; font-family: var(--font-title); color: var(--paper-sepia); text-shadow: 2px 2px 0 #000; }
 
-/* Visor do Resultado */
+.btn-history {
+  background: transparent;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+.btn-history:hover { transform: scale(1.2); }
+
+/* Área do Resultado */
 .dice-result-display {
   background-color: var(--paper-sepia);
   color: var(--ink-color);
@@ -376,7 +359,6 @@ input:focus, textarea:focus {
   align-items: center;
   box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
 }
-
 .dice-history {
   font-family: 'Courier Prime', monospace;
   font-size: 0.9em;
@@ -386,13 +368,8 @@ input:focus, textarea:focus {
   min-height: 1.2em;
 }
 
-/* Grid de Botões */
-.dice-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
+/* Botões de Dados */
+.dice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .dice-btn {
   background-color: var(--leather);
   border: 2px solid var(--paper-sepia);
@@ -406,22 +383,58 @@ input:focus, textarea:focus {
   transition: all 0.1s;
   text-shadow: 1px 1px 0 #000;
 }
+.dice-btn:hover { background-color: var(--paper-sepia); color: var(--ink-color); border-color: var(--wood-dark); text-shadow: none; }
+.dice-btn:active { transform: translateY(2px); }
+.dice-btn.d6 { background-color: var(--accent-red); border-color: var(--wood-dark); grid-column: span 3; font-size: 1.3em; }
 
-.dice-btn:hover {
-  background-color: var(--paper-sepia);
+/* Lista de Histórico */
+.history-list {
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--leather) var(--wood-dark);
+}
+.history-list::-webkit-scrollbar { width: 8px; }
+.history-list::-webkit-scrollbar-track { background: var(--wood-dark); }
+.history-list::-webkit-scrollbar-thumb { background-color: var(--leather); border-radius: 4px; }
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(244, 228, 188, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
+  border-bottom: 1px dotted var(--leather);
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.9em;
+}
+.history-val { font-weight: bold; color: var(--accent-red); }
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .top-grid { grid-template-columns: 1fr; }
+  .middle-grid { grid-template-columns: 1fr; }
+  .antecedentes-grid { grid-template-columns: repeat(4, 1fr); }
+  .header-content { flex-direction: column; gap: 10px; }
+  .horse-grid-3 { grid-template-columns: 1fr; gap: 20px; }
+  .horse-calculated-col { flex-direction: row; justify-content: space-around; }
+}
+
+/* Novo estilo para inputs de vida do cavalo */
+.horse-life-inputs {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.horse-life-inputs input {
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid var(--leather);
   color: var(--ink-color);
-  border-color: var(--wood-dark);
-  text-shadow: none;
-}
-
-.dice-btn:active {
-  transform: translateY(2px);
-}
-
-/* Destaque para o D6 */
-.dice-btn.d6 {
-  background-color: var(--accent-red);
-  border-color: var(--wood-dark);
-  grid-column: span 3;
-  font-size: 1.3em;
 }
