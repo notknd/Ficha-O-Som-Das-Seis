@@ -1,16 +1,65 @@
-# React + Vite
+# 🤠 Saloon - Gerenciador de Fichas de RPG
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Um sistema digital, interativo e temático para gerenciamento de fichas de personagens de RPG de mesa com temática "Old West".
 
-Currently, two official plugins are available:
+![Status do Projeto](https://img.shields.io/badge/Status-Finalizado-success)
+![React](https://img.shields.io/badge/React-v18-blue)
+![Supabase](https://img.shields.io/badge/Supabase-Database-green)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 Sobre o Projeto
 
-## React Compiler
+O **Saloon** é uma Single Page Application (SPA) desenvolvida para digitalizar a experiência de jogar um RPG de Velho Oeste. O projeto substitui as fichas de papel tradicionais por uma interface web responsiva, persistente e altamente estilizada.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O objetivo principal foi criar uma ferramenta que permitisse aos jogadores focarem na narrativa, automatizando cálculos e garantindo que o progresso (itens, xp, status) fosse salvo automaticamente na nuvem.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Funcionalidades Principais
+
+* **Gerenciamento de Personagens:** Criação e visualização de múltiplas fichas de personagens.
+* **Persistência de Dados em Tempo Real:** Integração com **Supabase** para salvar automaticamente qualquer alteração feita na ficha (sistema de *auto-save* com debouncing).
+* **Interface Temática:** Design imersivo utilizando CSS puro (sem frameworks de UI) para criar texturas de madeira, papel envelhecido, couro e efeitos de "papel rasgado".
+* **Sistema de Atributos Interativo:** Controle de atributos e perícias através de inputs visuais customizados (bolinhas/losangos) em vez de campos numéricos simples.
+* **Cálculos Automatizados:** Vida, Defesa, Iniciativa e Dano são calculados automaticamente com base nos atributos do personagem.
+* **Rolador de Dados Integrado:** Widget flutuante (`Floating Action Button`) que expande para uma bandeja de dados, permitindo rolagens rápidas (D4, D6, D8, D10, D12, D20) sem sair da tela.
+* **Seção de Montaria:** Área dedicada ao gerenciamento do cavalo, incluindo atributos próprios e sistema de progressão via *checkboxes*.
+* **Responsividade:** Layout fluido que se adapta a desktops (grid complexo) e dispositivos móveis (coluna única).
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+### Front-end
+* **React.js (Vite):** Biblioteca principal para construção da interface e gerenciamento de estado.
+* **React Router Dom:** Para navegação entre a listagem de personagens e a ficha individual.
+* **CSS3 Moderno:** Uso extensivo de:
+    * `CSS Variables` para theming.
+    * `Grid` e `Flexbox` para layouts complexos.
+    * `Clip-path` e `Drop-shadow` para efeitos visuais avançados (ex: etiquetas rasgadas).
+    * Animações CSS (`keyframes`) para interações de UI.
+
+### Back-end / BaaS
+* **Supabase:** Utilizado como banco de dados PostgreSQL para armazenar os objetos JSON das fichas.
+
+---
+
+## 🎨 Destaques de UI/UX
+
+O projeto foca fortemente na "Diegese" (imersão):
+1.  **Estética:** Fontes *Rye* e *Courier Prime* para remeter a cartazes de procurado e documentos datilografados.
+2.  **Feedback Visual:** Elementos interativos reagem ao mouse (hover, transformações).
+3.  **Organização:** A ficha é dividida logicamente em:
+    * *Esquerda:* Combate e Atributos.
+    * *Direita:* Roleplay, Inventário e Imagem.
+    * *Inferior:* Montaria.
+
+---
+
+## 🔧 Como rodar o projeto localmente
+
+Pré-requisitos: Node.js instalado.
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/SEU-USUARIO/nome-do-repo.git](https://github.com/SEU-USUARIO/nome-do-repo.git)
+   cd nome-do-repo
