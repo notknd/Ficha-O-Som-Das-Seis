@@ -73,11 +73,11 @@ Pré-requisitos: Node.js instalado.
 1. **Clone o repositório:**
    ```bash
    git clone https://github.com/notknd/Ficha-O-Som-Das-Seis.git
-   cd Ficha-O-Som-Das-Seis```
+   cd Ficha-O-Som-Das-Seis
 
 2. **Instalar dependências**
     ```bash
-    npm install```
+    npm install
 
 3. **Configurar Variáveis de Ambiente**
 
@@ -85,12 +85,12 @@ Pré-requisitos: Node.js instalado.
 
     ```bash
     VITE_SUPABASE_URL=sua_url_do_supabase
-    VITE_SUPABASE_ANON_KEY=sua_chave_anonima```
+    VITE_SUPABASE_ANON_KEY=sua_chave_anonima
 
 
 4. **Rodar o projeto**
     ```bash
-    npm run dev```
+    npm run dev
 O projeto estará disponível em  http://localhost:5173
 
 ---
@@ -102,7 +102,7 @@ Para colocar o projeto online gratuitamente na Vercel:
     ```json
     {
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-    }```
+    }
 
 2. Suba o código para o seu GitHub
 
