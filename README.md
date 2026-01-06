@@ -101,8 +101,9 @@ Para colocar o projeto online gratuitamente na Vercel:
 1. Crie um arquivo vercel.json na raiz do projeto com o seguinte conteúdo para configurar as rotas do SPA:
     ```json
     {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
     }
+    ``` 
 
 2. Suba o código para o seu GitHub
 
