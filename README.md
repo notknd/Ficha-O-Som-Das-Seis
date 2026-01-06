@@ -1,6 +1,6 @@
-# 🤠 Saloon - Gerenciador de Fichas de RPG
+# Ficha Digital O Som Das Seis
 
-> Um sistema digital, interativo e temático para gerenciamento de fichas de personagens de RPG de mesa com temática "Old West".
+> Um sistema digital, interativo e temático para gerenciamento de fichas do sistema O Som Das Seis.
 
 ![Status do Projeto](https://img.shields.io/badge/Status-Finalizado-success)
 ![React](https://img.shields.io/badge/React-v18-blue)
@@ -17,12 +17,19 @@ O objetivo principal foi criar uma ferramenta que permitisse aos jogadores focar
 ## Funcionalidades Principais
 
 * **Gerenciamento de Personagens:** Criação e visualização de múltiplas fichas de personagens.
+
 * **Persistência de Dados em Tempo Real:** Integração com **Supabase** para salvar automaticamente qualquer alteração feita na ficha (sistema de *auto-save* com debouncing).
+
 * **Interface Temática:** Design imersivo utilizando CSS puro (sem frameworks de UI) para criar texturas de madeira, papel envelhecido, couro e efeitos de "papel rasgado".
+
 * **Sistema de Atributos Interativo:** Controle de atributos e perícias através de inputs visuais customizados (bolinhas/losangos) em vez de campos numéricos simples.
+
 * **Cálculos Automatizados:** Vida, Defesa, Iniciativa e Dano são calculados automaticamente com base nos atributos do personagem.
+
 * **Rolador de Dados Integrado:** Widget flutuante (`Floating Action Button`) que expande para uma bandeja de dados, permitindo rolagens rápidas (D4, D6, D8, D10, D12, D20) sem sair da tela.
+
 * **Seção de Montaria:** Área dedicada ao gerenciamento do cavalo, incluindo atributos próprios e sistema de progressão via *checkboxes*.
+
 * **Responsividade:** Layout fluido que se adapta a desktops (grid complexo) e dispositivos móveis (coluna única).
 
 ---
@@ -31,7 +38,9 @@ O objetivo principal foi criar uma ferramenta que permitisse aos jogadores focar
 
 ### Front-end
 * **React.js (Vite):** Biblioteca principal para construção da interface e gerenciamento de estado.
+
 * **React Router Dom:** Para navegação entre a listagem de personagens e a ficha individual.
+
 * **CSS3 Moderno:** Uso extensivo de:
     * `CSS Variables` para theming.
     * `Grid` e `Flexbox` para layouts complexos.
@@ -47,7 +56,9 @@ O objetivo principal foi criar uma ferramenta que permitisse aos jogadores focar
 
 O projeto foca fortemente na imersão:
 1.  **Estética:** Fontes estilizadas para remeter a cartazes de procurado e documentos datilografados.
+
 2.  **Feedback Visual:** Elementos interativos reagem ao mouse (hover, transformações).
+
 3.  **Organização:** A ficha é dividida logicamente em:
     * *Esquerda:* Combate e Atributos.
     * *Direita:* Roleplay, Inventário e Imagem.
@@ -61,12 +72,12 @@ Pré-requisitos: Node.js instalado.
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/notknd/Ficha-O-Som-Das-Seis.git](https://github.com/notknd/Ficha-O-Som-Das-Seis)
-   cd Ficha-O-Som-Das-Seis
+   git clone https://github.com/notknd/Ficha-O-Som-Das-Seis.git
+   cd Ficha-O-Som-Das-Seis```
 
 2. **Instalar dependências**
     ```bash
-    npm install
+    npm install```
 
 3. **Configurar Variáveis de Ambiente**
 
@@ -74,21 +85,24 @@ Pré-requisitos: Node.js instalado.
 
     ```bash
     VITE_SUPABASE_URL=sua_url_do_supabase
-    VITE_SUPABASE_ANON_KEY=sua_chave_anonima
+    VITE_SUPABASE_ANON_KEY=sua_chave_anonima```
 
 
 4. **Rodar o projeto**
     ```bash
-    npm run dev
+    npm run dev```
 O projeto estará disponível em  http://localhost:5173
+
+---
 
 ## Deploy (Vercel)
 Para colocar o projeto online gratuitamente na Vercel:
+
 1. Crie um arquivo vercel.json na raiz do projeto com o seguinte conteúdo para configurar as rotas do SPA:
-    ```bash
+    ```json
     {
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-    }
+    }```
 
 2. Suba o código para o seu GitHub
 
@@ -99,6 +113,7 @@ Para colocar o projeto online gratuitamente na Vercel:
 5. Clique em Deploy
 
 ### Estrutura de Pastas
+```
 src/
 ├── assets/           # Imagens e ícones
 ├── App.css           # Estilos globais e componentes visuais (CSS Puro)
@@ -107,6 +122,9 @@ src/
 ├── Home.jsx          # Dashboard: Seleção e criação de personagens
 ├── main.jsx          # Ponto de entrada React
 └── supabaseClient.js # Configuração da conexão com o banco de dados
+```
+
+--- 
 
 ## Licença
 Este projeto está sob a licença MIT. Sinta-se livre para usar como inspiração para suas próprias campanhas de RPG.
