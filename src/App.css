@@ -339,6 +339,7 @@ input:focus, textarea:focus {
   transition: transform 0.2s;
   padding: 0;
   line-height: 1;
+  color: var(--paper-sepia);
 }
 .btn-history:hover { transform: scale(1.2); }
 
@@ -412,7 +413,7 @@ input:focus, textarea:focus {
   font-family: 'Courier Prime', monospace;
   font-size: 0.9em;
 }
-.history-val { font-weight: bold; color: var(--accent-red); }
+
 
 /* Responsividade */
 @media (max-width: 900px) {
@@ -422,6 +423,21 @@ input:focus, textarea:focus {
   .header-content { flex-direction: column; gap: 10px; }
   .horse-grid-3 { grid-template-columns: 1fr; gap: 20px; }
   .horse-calculated-col { flex-direction: row; justify-content: space-around; }
+}
+
+
+/* 1. A Animação Suave */
+@keyframes fadeSwitch {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. Aplicando a animação nos elementos que aparecem/somem */
+.dice-result-display, 
+.dice-history, 
+.dice-grid, 
+.history-list {
+   animation: fadeSwitch 0.25s ease-out forwards;
 }
 
 /* Novo estilo para inputs de vida do cavalo */
