@@ -95,38 +95,6 @@ O projeto estará disponível em  http://localhost:5173
 
 ---
 
-## Deploy (Vercel)
-Para colocar o projeto online gratuitamente na Vercel:
-
-1. Crie um arquivo vercel.json na raiz do projeto com o seguinte conteúdo para configurar as rotas do SPA:
-    ```json
-    {
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-    }
-    ``` 
-
-2. Suba o código para o seu GitHub
-
-3. Crie uma conta na Vercel e importe o repositório
-
-4. Nas configurações do projeto na Vercel, adicione as mesmas Variáveis de Ambiente do passo anterior.
-
-5. Clique em Deploy
-
-### Estrutura de Pastas
-```
-src/
-├── assets/           # Imagens e ícones
-├── App.css           # Estilos globais e componentes visuais (CSS Puro)
-├── App.jsx           # Configuração de Rotas
-├── Ficha.jsx         # Componente Principal: Lógica da ficha, cálculos e UI
-├── Home.jsx          # Dashboard: Seleção e criação de personagens
-├── main.jsx          # Ponto de entrada React
-└── supabaseClient.js # Configuração da conexão com o banco de dados
-```
-
---- 
-
 ## Licença
 Este projeto está sob a licença MIT. Sinta-se livre para usar como inspiração para suas próprias campanhas de RPG.
 
